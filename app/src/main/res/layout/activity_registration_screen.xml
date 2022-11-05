@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+
+    tools:context=".RegistrationScreen">
+
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="Enter your name"
+        android:text=""
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:hint="Enter your phone number"
+        android:layout_alignBottom="@+id/UserName"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-80dp"
+        android:textSize="25dp"
+        android:inputType="phone"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:layout_alignBottom="@+id/Phone"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-80dp"
+        android:inputType="textPassword"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/Password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Re Enter your Password"
+        android:layout_alignBottom="@+id/Password"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-80dp"
+        android:inputType="textPassword"
+        android:textSize="25dp"/>
+
+    <EditText
+        android:id="@+id/OTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter OTP"
+        android:layout_alignBottom="@+id/Password2"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-150dp"
+        android:inputType="number"
+        android:maxLines="1"
+
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/SendOTP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Password2"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-80dp"
+        android:layout_centerInParent="true"
+        android:text="Send OTP"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/OTP"
+         android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-96dp"
+        android:textSize="15dp"
+        android:text="Submit" />
+
+</RelativeLayout>
