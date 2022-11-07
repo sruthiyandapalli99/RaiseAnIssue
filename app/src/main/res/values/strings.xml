@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RaiseAnIssue</string>
+    <string name="map_key" translatable="false">AIzaSyDnS_goEFfWNJUj_9VooyRsETtBbHVSSaM</string>
+    <string name="title_activity_near_byplaces">NearBYplaces</string>
+    <string name="google_map_key">AIzaSyDkowLTVqi3eoG5ALcsFjv4XhZjopVFZEU</string>
 
 </resources>
