@@ -28,6 +28,7 @@ import java.util.ListIterator;
 public class LoginActivity extends AppCompatActivity {
       EditText ph,passcode;
       Button signin, newUser;
+      String numfor;
       DatabaseReference databaseReference;
     int flag;
 
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         newUser = findViewById(R.id.register);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("userdetails");
         List<userTable> list = new ArrayList();
+       // numfor = ph.getText().toString();
 
         Query que = databaseReference.orderByChild("phone").equalTo(ph.getText().toString());
 
@@ -72,11 +74,16 @@ public class LoginActivity extends AppCompatActivity {
 
                              userTable mob = snapshot.getValue(userTable.class);
                              String mob1 = mob.getPass();
+                             numfor = mob.getPhone();
+
 
 
                              if (mob1.equals(passcode.getText().toString())) {
 
                                  Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                 intent.putExtra("keynumber",numfor);
+                                 Bundle extras = intent.getExtras();
+                                 String extra = extras.getString("keynumber");
                                  startActivity(intent);
                              } else {
 

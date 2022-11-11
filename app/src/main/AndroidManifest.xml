@@ -26,6 +26,15 @@
         android:theme="@style/Theme.RaiseAnIssue"
         tools:targetApi="31">
         <activity
+            android:name=".Status"
+            android:exported="false" />
+        <activity
+            android:name=".background2"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".Mylocation"
             android:exported="false" />
         <!--
@@ -47,16 +56,16 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".partnersScreen"
+            android:name=".NearPlaces"
             android:exported="false" />
         <activity
             android:name=".RegistrationScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".partnersScreen"
             android:exported="false" />
         <activity
-            android:name=".NearPlaces"
+            android:name=".Bacgroundapp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     Uri image_uri;
     String status;
     TextView txt;
+    TextView number;
     Button submit;
     TextView describe;
     String imageexists;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     Button upload;
     FloatingActionButton deleteimage;
     DatabaseReference issues;
+    DatabaseReference issues1;
     int count =0;
+    String keka;
 
     int val;
     @Override
@@ -50,11 +53,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         image = findViewById(R.id.image_View);
+        number = findViewById(R.id.ph);
+
+        LoginActivity num = new LoginActivity();
+        String numfor = num.numfor;
+        Intent intent = getIntent ();
+        Bundle extras = intent.getExtras();
+
+
+         keka = extras.getString("keynumber");
+
+        number.setText(keka);
+
+
         txt = findViewById(R.id.random);
         capturebtn = findViewById(R.id.takeaphoto);
         submit = findViewById(R.id.button);
         describe = findViewById(R.id.discription);
         issues = FirebaseDatabase.getInstance().getReference().child("issues table");
+        issues1 = FirebaseDatabase.getInstance().getReference().child("In process");
         upload = findViewById(R.id.uploadaphoto);
         deleteimage = findViewById(R.id.floatingActionButton2);
         deleteimage.setOnClickListener(new View.OnClickListener() {
@@ -213,11 +230,17 @@ public class MainActivity extends AppCompatActivity {
         String imageID = pic;
         String TicketNum = "EI-"+ Integer.toString(val);
 
+
+       // issuetabledetails details2 = new issuetabledetails(num.numfor);
+        //issues1.push().setValue(details2);
+
         issuetabledetails details = new issuetabledetails(Describeissue,imageID,TicketNum);
         issues.push().setValue(details);
 
 
     }
+
+
 
 
 }

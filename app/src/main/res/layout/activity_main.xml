@@ -7,11 +7,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <EditText
         android:id="@+id/discription"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Describe the issue "
         android:inputType="textPersonName"
@@ -56,6 +58,7 @@
         android:layout_marginBottom="225dp"
 
 
+
         android:text="Submit" />
 
     <TextView
@@ -77,6 +80,16 @@
         android:layout_marginBottom="429dp"
         android:clickable="true"
         app:srcCompat="@drawable/ic_baseline_cancel_24" />
+
+    <TextView
+        android:id="@+id/ph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="-59dp"
+        android:text=""
+        android:textSize="20dp"></TextView>
 
 
 </RelativeLayout>
