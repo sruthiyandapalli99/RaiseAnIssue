@@ -36,11 +36,14 @@ public class Status extends AppCompatActivity {
         myListview = (ListView) findViewById(R.id.mylist);
         myListview.setAdapter(myadapter);
         issue = FirebaseDatabase.getInstance().getReference().child("issues table");
-        issues = FirebaseDatabase.getInstance().getReference().child("completed");
+        issues = FirebaseDatabase.getInstance().getReference().child("Completed");
         AllT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                issue = FirebaseDatabase.getInstance().getReference().child("issues table");
+                //issue = FirebaseDatabase.getInstance().getReference().child("issues table");
+                myarraylist.clear();
+                myadapter.clear();
+
                 issue.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {

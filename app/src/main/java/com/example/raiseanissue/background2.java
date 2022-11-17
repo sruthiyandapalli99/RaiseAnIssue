@@ -28,7 +28,8 @@ public class background2 extends AppCompatActivity {
     ImageView imageView;
     EditText msg;
     TextView issuenum;
-    String issueid;
+    String issuekey;
+    String issueTick;
     DatabaseReference issue;
     DatabaseReference issue1;
 
@@ -47,13 +48,19 @@ public class background2 extends AppCompatActivity {
 
         Intent intent = getIntent ();
         Bundle extras = intent.getExtras();
-        issueid = extras.getString("keyid");
-        issuenum.setText("Ticket Number"+":" +issueid);
-        issue.orderByChild("issueID").equalTo(issueid).addChildEventListener(new ChildEventListener() {
+        issueTick = extras.getString("keyticket");
+        issuekey = extras.getString("keyid");
+
+        issuenum.setText("Ticket Number"+":" +issueTick);
+        issue.orderByChild("issueID").equalTo(issueTick).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 issuetabledetails details = snapshot.getValue(issuetabledetails.class);
                 describe.setText("Description"+":"+details.getIssuedetails());
+                issue.child(issuekey).setValue(null);
+
+
+
 
 
 
@@ -84,6 +91,11 @@ public class background2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                completeissue();
+               Intent intent1 = new Intent(getApplicationContext(),Bacgroundapp.class);
+               startActivity(intent1);
+
+
+
             }
         });
 
@@ -91,7 +103,7 @@ public class background2 extends AppCompatActivity {
 
     public void completeissue(){
         String comment = msg.getText().toString();
-        CompletedTable fill = new CompletedTable(comment,issueid);
+        CompletedTable fill = new CompletedTable(comment,issueTick);
         issue1.push().setValue(fill);
 
     }
