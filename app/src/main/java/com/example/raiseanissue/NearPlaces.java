@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +26,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +44,7 @@ import java.util.List;
 public class NearPlaces extends AppCompatActivity {
 Spinner spType;
 Button btfind;
+BottomNavigationView nave;
 SupportMapFragment supportMapFragment;
 FusedLocationProviderClient client;
 double currentLat=0,currentLong=0;
@@ -50,6 +55,44 @@ GoogleMap map;
         setContentView(R.layout.activity_near_places);
         spType = findViewById(R.id.sp_type);
         btfind = findViewById(R.id.bt_find);
+        nave = findViewById(R.id.naver);
+        nave.setSelectedItemId(R.id.nearby);
+        nave.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                switch (item.getItemId()){
+                    case  R.id.homee:
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.partner:
+                        Intent i1 = new Intent(getApplicationContext(),partnersScreen.class);
+                        startActivity(i1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.nearby:
+                        /*Intent i2 = new Intent(getApplicationContext(), NearPlaces.class);
+                        startActivity(i2);
+                        overridePendingTransition(0,0);*/
+                        return true;
+                    case R.id.status:
+                        Intent i3 = new Intent(getApplicationContext(), Status.class);
+                        startActivity(i3);
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+
+
+                return false;
+            }
+        });
+
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
         String[] placeTypeList = {"fillingstation","bank","hospital","cinemas","restaurant"};
         String[] placeNameList = {"Filling Stations","Banks", "Hospitals", "Movie Theaters","Restaurants"};

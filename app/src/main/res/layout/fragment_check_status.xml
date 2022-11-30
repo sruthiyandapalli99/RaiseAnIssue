@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".CheckStatus">
 
 
-    tools:context=".Status">
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/naver"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/kk"
-        app:itemTextColor="@drawable/state"
-        app:itemIconTint="@drawable/state"
-        app:menu="@menu/menu_bar">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -43,12 +29,10 @@
             android:layout_marginTop="20dp"
             android:text="Completed Tickets"
             android:layout_marginBottom="20dp"/>
-</LinearLayout>
+    </LinearLayout>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mylist"/>
-
-    </LinearLayout>
-
+</LinearLayout>
 </RelativeLayout>

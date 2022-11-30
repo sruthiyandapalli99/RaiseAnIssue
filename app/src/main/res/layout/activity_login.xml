@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/euphcol"
     tools:context=".LoginActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome! Please login to continue"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"/>
 
     <EditText
         android:id="@+id/Phonenumber"
@@ -14,6 +22,7 @@
         android:ems="10"
         android:hint="Enter Mobile Number"
         android:inputType="phone"
+        android:textColor="@color/black"
 
         android:textSize="30dp" />
 
@@ -26,6 +35,7 @@
         android:layout_marginBottom="-101dp"
         android:ems="10"
         android:hint="Enter Password"
+        android:textColor="@color/black"
         android:inputType="textPassword"
         android:textSize="30dp" />
 
@@ -37,6 +47,8 @@
       android:layout_centerInParent="true"
 
         android:layout_marginBottom="-161dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
         android:text="Login" />
 
     <TextView
@@ -48,6 +60,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="-61dp"
         android:text="New User? Register Now"
+        android:textColor="@color/black"
         android:textSize="25dp" />
 
     <Button
@@ -58,5 +71,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="-85dp"
+         android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+
         android:text="Register" />
 </RelativeLayout>

@@ -4,8 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".MainActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/naver"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/kk"
+        app:itemTextColor="@drawable/state"
+        app:itemIconTint="@drawable/state"
+        app:menu="@menu/menu_bar"/>
 
 
 
@@ -58,7 +68,6 @@
         android:layout_marginBottom="225dp"
 
 
-
         android:text="Submit" />
 
     <TextView
@@ -66,9 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="137dp"
-        android:layout_centerInParent="true"
         android:text="" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -79,6 +88,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="429dp"
         android:clickable="true"
+
+
         app:srcCompat="@drawable/ic_baseline_cancel_24" />
 
     <TextView
@@ -90,6 +101,9 @@
         android:layout_marginBottom="-59dp"
         android:text=""
         android:textSize="20dp"></TextView>
+
+
+
 
 
 </RelativeLayout>

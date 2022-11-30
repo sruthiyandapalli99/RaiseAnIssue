@@ -13,15 +13,22 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.Random;
 
@@ -29,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
     public static  final int PERMISSION_CODE =1001;
     public static  final int IMAGE_CAPTURE_CODE=1000;
     public static final int IMAGE_PICK_CODE =1000;
+
     Button capturebtn;
     ImageView image;
     Uri image_uri;
+    Uri imager;
     String status;
     TextView txt;
     TextView number;
@@ -45,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference issues1;
     int count =0;
     String keka;
+    BottomNavigationView nave;
+
+
+
 
     int val;
     @Override
@@ -57,13 +70,49 @@ public class MainActivity extends AppCompatActivity {
 
         LoginActivity num = new LoginActivity();
         String numfor = num.numfor;
-        Intent intent = getIntent ();
-        Bundle extras = intent.getExtras();
+        //Intent intent = getIntent ();
+       // Bundle extras = intent.getExtras();
 
 
-         keka = extras.getString("keynumber");
+        // keka = extras.getString("keynumber");
 
-        number.setText(keka);
+       // number.setText(keka);
+        nave = findViewById(R.id.naver);
+        nave.setSelectedItemId(R.id.homee);
+        nave.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                switch (item.getItemId()){
+                    case  R.id.homee:
+                       /* Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);*/
+                        return true;
+
+                    case R.id.partner:
+                        Intent i1 = new Intent(getApplicationContext(),partnersScreen.class);
+                        startActivity(i1);
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.nearby:
+                        Intent i2 = new Intent(getApplicationContext(), NearPlaces.class);
+                        startActivity(i2);
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.status:
+                        Intent i3 = new Intent(getApplicationContext(), Status.class);
+                        startActivity(i3);
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+
+
+
+                return false;
+            }
+        });
 
 
         txt = findViewById(R.id.random);
@@ -207,6 +256,14 @@ public class MainActivity extends AppCompatActivity {
 
                 // image.setImageURI(image_uri);
                 image.setImageURI(data.getData());
+                StorageReference ref = FirebaseStorage.getInstance().getReference().child("kk");
+                ref.putFile(data.getData()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(MainActivity.this, "uploaded", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
                 pic = data.getData().toString();
                 count =1;
 
@@ -217,6 +274,18 @@ public class MainActivity extends AppCompatActivity {
              //setting image captured to imageview
              pic = image_uri.toString();
              image.setImageURI(image_uri);
+             //imager = image_uri;
+             StorageReference ref = FirebaseStorage.getInstance().getReference().child("uu");
+             ref.putFile(image_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                 @Override
+                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                     Toast.makeText(MainActivity.this, "uploaded", Toast.LENGTH_SHORT).show();
+
+                 }
+             });
+
+
+
              count =1;
 
          }
@@ -233,6 +302,8 @@ public class MainActivity extends AppCompatActivity {
 
        // issuetabledetails details2 = new issuetabledetails(num.numfor);
         //issues1.push().setValue(details2);
+
+
 
         issuetabledetails details = new issuetabledetails(Describeissue,imageID,TicketNum);
         issues.push().setValue(details);
