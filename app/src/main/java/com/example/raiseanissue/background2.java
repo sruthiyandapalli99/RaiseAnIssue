@@ -5,15 +5,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +25,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.io.File;
+import java.io.IOException;
 
 public class background2 extends AppCompatActivity {
     Button complete;
@@ -32,6 +42,7 @@ public class background2 extends AppCompatActivity {
     String issueTick;
     DatabaseReference issue;
     DatabaseReference issue1;
+    ImageView im;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,8 @@ public class background2 extends AppCompatActivity {
         imageView = findViewById(androidx.appcompat.R.id.image);
         msg= findViewById(R.id.msg);
         issuenum = findViewById(R.id.issueidnum);
+        im= findViewById(R.id.issueimage);
+        StorageReference reference = FirebaseStorage.getInstance().getReference().child("uu");
         issue = FirebaseDatabase.getInstance().getReference().child("issues table");
         issue1 = FirebaseDatabase.getInstance().getReference().child("Completed");
 
@@ -57,7 +70,7 @@ public class background2 extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 issuetabledetails details = snapshot.getValue(issuetabledetails.class);
                 describe.setText("Description"+":"+details.getIssuedetails());
-                issue.child(issuekey).setValue(null);
+
 
 
 
@@ -87,12 +100,31 @@ public class background2 extends AppCompatActivity {
             }
         });
 
+        try {
+            final File localfile = File.createTempFile("image", "");
+            reference.getFile(localfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+
+                    im.setImageBitmap(bitmap);
+
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         complete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                completeissue();
                Intent intent1 = new Intent(getApplicationContext(),Bacgroundapp.class);
                startActivity(intent1);
+                issue.child(issuekey).setValue(null);
 
 
 
@@ -108,4 +140,5 @@ public class background2 extends AppCompatActivity {
 
     }
 
-}
+
+    }

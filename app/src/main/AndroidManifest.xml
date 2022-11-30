@@ -40,7 +40,7 @@
             android:label="@string/title_activity_navigatiion_d"
             android:theme="@style/Theme.RaiseAnIssue.NoActionBar" />
         <activity
-            android:name=".Bacgroundapp"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".background2"
@@ -67,7 +67,7 @@
             android:value="AIzaSyDkowLTVqi3eoG5ALcsFjv4XhZjopVFZEU" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".finalnavigation"
@@ -79,7 +79,7 @@
             android:name=".partnersScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Bacgroundapp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
