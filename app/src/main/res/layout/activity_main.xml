@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/euphcol"
+
+
+
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <include layout="@layout/actiobar"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -19,13 +29,20 @@
 
 
 
+
+
+
     <EditText
         android:id="@+id/discription"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Describe the issue "
+        android:background="@drawable/box"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:hint="Describe the issue"
+
         android:inputType="textPersonName"
         android:text="" />
 
@@ -36,6 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="315dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         android:text="Take a Photo"></Button>
 
 
@@ -44,6 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
 
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="19dp"
@@ -54,9 +75,22 @@
         android:id="@+id/image_View"
         android:layout_width="138dp"
         android:layout_height="110dp"
+
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="405dp"
         app:srcCompat="@drawable/ic_baseline_image_24" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="429dp"
+        android:clickable="true"
+
+
+        app:srcCompat="@drawable/ic_baseline_cancel_24" />
+
 
     <Button
         android:id="@+id/button"
@@ -64,6 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
 
         android:layout_marginBottom="225dp"
 
@@ -80,17 +116,7 @@
         android:layout_marginBottom="137dp"
         android:text="" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="429dp"
-        android:clickable="true"
 
-
-        app:srcCompat="@drawable/ic_baseline_cancel_24" />
 
     <TextView
         android:id="@+id/ph"
@@ -101,6 +127,7 @@
         android:layout_marginBottom="-59dp"
         android:text=""
         android:textSize="20dp"></TextView>
+
 
 
 

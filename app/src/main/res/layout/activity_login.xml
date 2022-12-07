@@ -19,37 +19,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="@drawable/box"
         android:ems="10"
+
         android:hint="Enter Mobile Number"
         android:inputType="phone"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
 
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/passcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/Phonenumber"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="-101dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="-73dp"
+        android:background="@drawable/box"
         android:ems="10"
+
         android:hint="Enter Password"
-        android:textColor="@color/black"
         android:inputType="textPassword"
-        android:textSize="30dp" />
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/passcode"
-      android:layout_centerInParent="true"
+        android:layout_centerInParent="true"
 
-        android:layout_marginBottom="-161dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="-98dp"
         android:backgroundTint="@color/white"
-        android:text="Login" />
+        android:text="Login"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/registration"
@@ -61,7 +68,7 @@
         android:layout_marginBottom="-61dp"
         android:text="New User? Register Now"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/register"
@@ -74,5 +81,20 @@
          android:textColor="@color/black"
         android:backgroundTint="@color/white"
 
+
         android:text="Register" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/register"
+        android:layout_centerInParent="true"
+        android:id="@+id/forgtpas"
+
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="-49dp"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:text="Forgot Password?"
+        android:textColor="@color/black" />
 </RelativeLayout>

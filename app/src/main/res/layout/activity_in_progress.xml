@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/euphcol"
+
+    tools:context=".InProgress">
+    <include layout="@layout/actiobar"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/naver"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/kk"
+        app:itemTextColor="@drawable/state"
+        app:itemIconTint="@drawable/state"
+        app:menu="@menu/menu_bar"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/issueidnum"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/box"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            ></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/desc1"
+            android:background="@drawable/box"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20dp"/>
+
+
+        <ImageView
+            android:id="@+id/issueimage"
+            android:layout_width="178dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/ic_baseline_image_24"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status :"
+            android:id="@+id/stat"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginRight="50dp"
+                android:textColor="@color/black"
+
+                android:id="@+id/stat1"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="20dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

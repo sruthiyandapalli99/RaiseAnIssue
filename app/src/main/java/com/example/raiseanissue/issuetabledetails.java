@@ -18,6 +18,11 @@ public class issuetabledetails
         this.issueID = issueID;
         this.phonenum = phonenum;
     }
+
+    public void setIssuedetails(String issuedetails) {
+        this.issuedetails = issuedetails;
+    }
+
     public issuetabledetails(){
 
     }
@@ -25,10 +30,13 @@ public class issuetabledetails
         this.issueID = issueID;
     }
 
+
     public issuetabledetails(String issuedetails, String issueimage, String issueID) {
         this.issuedetails = issuedetails;
         this.issueimage = issueimage;
         this.issueID = issueID;
+
+        //this.phonenum = phonenum;
     }
 
     public String getStatus() {

@@ -7,7 +7,11 @@ public class userTable {
     String phone;
     String pass;
 
-  public userTable(){
+    public userTable(String pass) {
+        this.pass = pass;
+    }
+
+    public userTable(){
 
   }
     public userTable(String user, String phone, String pass) {

@@ -4,26 +4,34 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_round.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/box.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/editbox_background.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_baseline_cancel_24.xml" value="0.1945" />
+        <entry key="app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/kk.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/state.xml" value="0.1945" />
-        <entry key="app/src/main/res/layout/activity_bacgroundapp.xml" value="0.2526041666666667" />
-        <entry key="app/src/main/res/layout/activity_background2.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/actiobar.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_bacgroundapp.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_background2.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_completedissues.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_database.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/layout/activity_example.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/activity_finalnavigation.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2526041666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_forgotpassword.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_in_progress.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_mylocation.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/activity_navigatiion_d.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_near_byplaces.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/activity_near_places.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_partners_screen.xml" value="0.15" />
-        <entry key="app/src/main/res/layout/activity_registration_screen.xml" value="0.2526041666666667" />
-        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/activity_partners_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_registration_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_status.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_wel.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/layout/activity_your_tickets.xml" value="0.11302083333333333" />
         <entry key="app/src/main/res/layout/app_bar_navigatiion_d.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/layout/content_navigatiion_d.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/layout/fragment_check_status.xml" value="0.1" />
@@ -33,6 +41,7 @@
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/layout/fragment_status.xml" value="0.33" />
         <entry key="app/src/main/res/layout/nav_header_navigatiion_d.xml" value="0.2526041666666667" />
+        <entry key="app/src/main/res/menu/actionbaricons.xml" value="0.2515625" />
         <entry key="app/src/main/res/menu/activity_main.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/menu/menu_bar.xml" value="0.1" />

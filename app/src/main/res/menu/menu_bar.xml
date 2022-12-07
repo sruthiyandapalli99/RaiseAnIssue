@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/homee"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home"
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:title="Raise Issue"
         android:iconTint="@color/black"></item>
     <item
         android:id="@+id/partner"

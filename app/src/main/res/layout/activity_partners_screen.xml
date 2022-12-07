@@ -4,7 +4,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/euphcol"
     >
+    <include layout="@layout/actiobar"></include>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
@@ -29,7 +31,8 @@
         android:layout_height="wrap_content"
         android:text="PRIMARK"
         android:textSize="25dp"
-        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"></TextView>
 
     <LinearLayout
@@ -41,18 +44,23 @@
             android:layout_height="wrap_content"
             android:text="CODE"
             android:id="@+id/code1"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"></Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DIRECTIONS"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/map1"></Button>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CURRYS"
+        android:textColor="@color/black"
         android:textSize="25dp"
         android:layout_marginBottom="20dp"></TextView>
     <LinearLayout
@@ -63,6 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CODE"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"
             android:id="@+id/code2"></Button>
@@ -70,6 +80,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DIRECTIONS"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/map2"></Button>
     </LinearLayout>
     <TextView
@@ -77,6 +89,7 @@
         android:layout_height="wrap_content"
         android:text="CINE WORLD"
         android:textSize="25dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"></TextView>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -87,12 +100,16 @@
             android:layout_height="wrap_content"
             android:text="CODE"
             android:id="@+id/code3"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:layout_marginBottom="50dp"
             android:layout_marginRight="30dp"></Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DIRECTIONS"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:id="@+id/map3"></Button>
     </LinearLayout>
 
@@ -103,6 +120,7 @@
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:id="@+id/random"
+        android:textColor="@color/black"
         android:text=""></TextView>
 
 

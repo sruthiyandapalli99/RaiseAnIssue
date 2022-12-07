@@ -43,6 +43,7 @@ public class background2 extends AppCompatActivity {
     DatabaseReference issue;
     DatabaseReference issue1;
     ImageView im;
+    Uri imageuri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class background2 extends AppCompatActivity {
         msg= findViewById(R.id.msg);
         issuenum = findViewById(R.id.issueidnum);
         im= findViewById(R.id.issueimage);
-        StorageReference reference = FirebaseStorage.getInstance().getReference().child("uu");
+       // StorageReference reference = FirebaseStorage.getInstance().getReference().child("uu");
         issue = FirebaseDatabase.getInstance().getReference().child("issues table");
         issue1 = FirebaseDatabase.getInstance().getReference().child("Completed");
 
@@ -63,6 +64,7 @@ public class background2 extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         issueTick = extras.getString("keyticket");
         issuekey = extras.getString("keyid");
+        StorageReference reference = FirebaseStorage.getInstance().getReference().child(issueTick);
 
         issuenum.setText("Ticket Number"+":" +issueTick);
         issue.orderByChild("issueID").equalTo(issueTick).addChildEventListener(new ChildEventListener() {
@@ -101,14 +103,16 @@ public class background2 extends AppCompatActivity {
         });
 
         try {
-            final File localfile = File.createTempFile("image", "");
+            final File localfile = File.createTempFile(  issueTick, "");
             reference.getFile(localfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
 
-                    Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+                  // Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+                   imageuri = Uri.fromFile(localfile.getAbsoluteFile());
+                   // compressedImageFile = Compressor.getDefault(this).compressToFile(actualImageFile);
 
-                    im.setImageBitmap(bitmap);
+                    im.setImageURI(imageuri);
 
                 }
             });
@@ -125,7 +129,7 @@ public class background2 extends AppCompatActivity {
                Intent intent1 = new Intent(getApplicationContext(),Bacgroundapp.class);
                startActivity(intent1);
                 issue.child(issuekey).setValue(null);
-
+                
 
 
             }

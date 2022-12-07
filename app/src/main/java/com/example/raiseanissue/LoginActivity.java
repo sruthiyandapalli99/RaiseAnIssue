@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
       EditText ph,passcode;
       Button signin, newUser;
       String numfor;
+      TextView forgotpass;
       DatabaseReference databaseReference;
     int flag;
 
@@ -36,14 +38,24 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+       // getSupportActionBar().setTitle("EuphonyHomes");
 
         ph = findViewById(R.id.Phonenumber);
         passcode = findViewById(R.id.passcode);
         signin = findViewById(R.id.loginbtn);
         newUser = findViewById(R.id.register);
+        forgotpass = (TextView) findViewById(R.id.forgtpas);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("userdetails");
         List<userTable> list = new ArrayList();
+
        // numfor = ph.getText().toString();
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Forgotpassword.class);
+                startActivity(i);
+            }
+        });
 
         Query que = databaseReference.orderByChild("phone").equalTo(ph.getText().toString());
 
@@ -79,21 +91,32 @@ public class LoginActivity extends AppCompatActivity {
 
 
                              if (mob1.equals(passcode.getText().toString())) {
+                                 Intent i = new Intent(getApplicationContext(), userProfile.class);
+                                i.putExtra("pnum",numfor);
+                                // Bundle extras = i.getExtras();
+                                // String extra = extras.getString("pnum");
 
                                  Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                 intent.putExtra("keynumber",numfor);
-                                 Bundle extras = intent.getExtras();
-                                 String extra = extras.getString("keynumber");
+                                 //intent.putExtra("keynumber",numfor);
+                                // Bundle extras = intent.getExtras();
+                                 //String extra = extras.getString("keynumber");
                                  startActivity(intent);
+                                 ph.setText("");
+                                 passcode.setText("");
+
                              } else {
 
                                  Toast.makeText(LoginActivity.this, "Wrong password", Toast.LENGTH_SHORT).show();
+                                 ph.setText("");
+                                 passcode.setText("");
                              }
 
                          }
                          else
                          {
                              Toast.makeText(LoginActivity.this, "No account", Toast.LENGTH_SHORT).show();
+                             ph.setText("");
+                             passcode.setText("");
                          }
                              }
 
@@ -126,6 +149,8 @@ public class LoginActivity extends AppCompatActivity {
                     else
                     {
                         Toast.makeText(LoginActivity.this, "Create Account", Toast.LENGTH_SHORT).show();
+                        ph.setText("");
+                        passcode.setText("");
                     }
 
 
@@ -151,6 +176,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), RegistrationScreen.class);
                 startActivity(intent);
+                ph.setText("");
+                passcode.setText("");
             }
         });
 

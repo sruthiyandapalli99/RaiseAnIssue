@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -45,6 +46,7 @@ public class NearPlaces extends AppCompatActivity {
 Spinner spType;
 Button btfind;
 BottomNavigationView nave;
+ImageView profile, logout;
 SupportMapFragment supportMapFragment;
 FusedLocationProviderClient client;
 double currentLat=0,currentLong=0;
@@ -57,6 +59,15 @@ GoogleMap map;
         btfind = findViewById(R.id.bt_find);
         nave = findViewById(R.id.naver);
         nave.setSelectedItemId(R.id.nearby);
+       // profile = findViewById(R.id.profileicon);
+        logout = findViewById(R.id.logouticon);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
         nave.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

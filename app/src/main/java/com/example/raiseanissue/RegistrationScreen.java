@@ -115,6 +115,7 @@ public class RegistrationScreen extends AppCompatActivity {
 
 
                            } else {
+
                                Toast.makeText(RegistrationScreen.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                            }
                        }

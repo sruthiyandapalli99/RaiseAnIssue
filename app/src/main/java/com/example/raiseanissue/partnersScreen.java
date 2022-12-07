@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,11 +23,13 @@ public class partnersScreen extends AppCompatActivity{
     Button Dcode1,Dcode2,Dcode3,Dcode4;
     Button Dmap1,Dmap2,Dmap3,Dmap4;
     BottomNavigationView nave;
+    ImageView profile, logout;
      TextView txt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partners_screen);
+       // getSupportActionBar().setTitle("EuphonyHomes");
         Dcode1= findViewById(R.id.code1);
         Dcode2= findViewById(R.id.code2);
         Dcode3= findViewById(R.id.code3);
@@ -35,9 +39,20 @@ public class partnersScreen extends AppCompatActivity{
         Dmap3 = findViewById(R.id.map3);
        // Dmap4 = findViewById(R.id.map4);
         txt = findViewById(R.id.random);
+        //profile = findViewById(R.id.profileicon);
+        logout = findViewById(R.id.logouticon);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         nave = findViewById(R.id.naver);
         nave.setSelectedItemId(R.id.partner);
+
         nave.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -135,6 +150,9 @@ public class partnersScreen extends AppCompatActivity{
                 randomnum();
             }
         });
+
+
+
     }
 
     public void randomnum(){

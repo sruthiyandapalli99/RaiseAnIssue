@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/euphcol"
+    android:background="@color/white"
 
-    tools:context=".Bacgroundapp">
+    android:layout_height="wrap_content">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
 
         android:padding="16dp">
+
 
         <ImageView
             android:id="@+id/profileicon"
@@ -27,23 +25,20 @@
 
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/profileicon"
-            android:text="Euphony Admin"
+            android:text="Euphony Homes"
             android:layout_centerVertical="true"
 
             android:textColor="@color/black"
             android:textSize="20sp"/>
 
+        <ImageView
+            android:id="@+id/logouticon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_logout" />
     </RelativeLayout>
-
-
-    <ListView
-        android:layout_marginTop="90dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:id="@+id/list"></ListView>
-
-
 
 
 

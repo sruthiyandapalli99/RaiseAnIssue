@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,10 +27,13 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     TextView txt;
     TextView number;
     Button submit;
+    ImageView profile;
+
+    ImageView logout;
     TextView describe;
     String imageexists;
     String pic;
@@ -55,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     int count =0;
     String keka;
     BottomNavigationView nave;
-
+    StorageReference ref;
 
 
 
@@ -64,17 +71,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // getSupportActionBar().setTitle("EuphonyHomes");
+
+
 
         image = findViewById(R.id.image_View);
         number = findViewById(R.id.ph);
+       // profile = findViewById(R.id.profileicon);
+        logout = findViewById(R.id.logouticon);
+        logout.setOnClickListener(new View.OnClickListener() {
+           @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
-        LoginActivity num = new LoginActivity();
-        String numfor = num.numfor;
-        //Intent intent = getIntent ();
+
+      //  LoginActivity num = new LoginActivity();
+      //  String numfor = num.numfor;
+      //  Intent intent = getIntent();
        // Bundle extras = intent.getExtras();
 
 
-        // keka = extras.getString("keynumber");
+       //  keka = extras.getString("keynumber");
 
        // number.setText(keka);
         nave = findViewById(R.id.naver);
@@ -275,11 +295,11 @@ public class MainActivity extends AppCompatActivity {
              pic = image_uri.toString();
              image.setImageURI(image_uri);
              //imager = image_uri;
-             StorageReference ref = FirebaseStorage.getInstance().getReference().child("uu");
+             ref = FirebaseStorage.getInstance().getReference().child("image");
              ref.putFile(image_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                  @Override
                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                     Toast.makeText(MainActivity.this, "uploaded", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(MainActivity.this, "uploaded", Toast.LENGTH_SHORT).show();
 
                  }
              });
@@ -298,9 +318,41 @@ public class MainActivity extends AppCompatActivity {
         String Describeissue = describe.getText().toString();
         String imageID = pic;
         String TicketNum = "EI-"+ Integer.toString(val);
+        String pho = keka;
+        Intent i = new Intent(getApplicationContext(), Status.class);
+        i.putExtra("pnum",pho);
+        ref = FirebaseStorage.getInstance().getReference().child("image");
+        try {
+            final File localfile = File.createTempFile("image", "");
+            ref.getFile(localfile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+                    // Bitmap bitmap = BitmapFactory.decodeFile(localfile.getAbsolutePath());
+                    imager = Uri.fromFile(localfile.getAbsoluteFile());
+                    // compressedImageFile = Compressor.getDefault(this).compressToFile(actualImageFile);
+
+                    //im.setImageURI(imageuri);
+                    StorageReference reference = FirebaseStorage.getInstance().getReference().child(TicketNum);
+                    reference.putFile(imager).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(MainActivity.this, "yes", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-       // issuetabledetails details2 = new issuetabledetails(num.numfor);
+
+
+
+        // issuetabledetails details2 = new issuetabledetails(num.numfor);
         //issues1.push().setValue(details2);
 
 
