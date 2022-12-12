@@ -84,17 +84,5 @@
 
         android:text="Register" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/register"
-        android:layout_centerInParent="true"
-        android:id="@+id/forgtpas"
 
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="-49dp"
-        android:textSize="20dp"
-        android:clickable="true"
-        android:text="Forgot Password?"
-        android:textColor="@color/black" />
 </RelativeLayout>

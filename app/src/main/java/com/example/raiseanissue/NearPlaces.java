@@ -128,7 +128,7 @@ GoogleMap map;
                        "&radius=5000" +
                        "&types=" + placeTypeList[i]+
                        "&sensor=true"+
-                       "&key=" +"AIzaSyDkowLTVqi3eoG5ALcsFjv4XhZjopVFZEU";
+                       "&key=" +"AIzaSyBoW37YNzlcn7msSFFKXvgE-8BBLGyansA";
                        //getResources().getString(R.string.google_map_key);
                new PlaceTask().execute(url);
            }

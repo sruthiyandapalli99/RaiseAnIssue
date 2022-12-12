@@ -44,18 +44,12 @@ public class LoginActivity extends AppCompatActivity {
         passcode = findViewById(R.id.passcode);
         signin = findViewById(R.id.loginbtn);
         newUser = findViewById(R.id.register);
-        forgotpass = (TextView) findViewById(R.id.forgtpas);
+
         databaseReference = FirebaseDatabase.getInstance().getReference().child("userdetails");
         List<userTable> list = new ArrayList();
 
        // numfor = ph.getText().toString();
-        forgotpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Forgotpassword.class);
-                startActivity(i);
-            }
-        });
+
 
         Query que = databaseReference.orderByChild("phone").equalTo(ph.getText().toString());
 
